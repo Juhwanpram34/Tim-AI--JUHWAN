@@ -1,1 +1,19 @@
+# System Architecture - AI Financial Analytics
 
+This document outlines the technical structure of the Financial AI System.
+
+## 🏗 System Components
+1. **Automation Engine (Python):** Handles data scraping and automated financial entry.
+2. **High-Speed Processor (C++):** Optimized for complex financial calculations and risk analysis.
+3. **Storage Layer (MySQL):** Securely stores encrypted financial records and user logs.
+4. **Security Layer (Linux):** Hardened environment using SSH keys and firewall configurations.
+
+## 📊 Workflow
+* **Input:** Raw financial data from CSV or API.
+* **Processing:** Python scripts clean the data, then pass it to C++ for heavy computation.
+* **Output:** Visualized reports and investment suggestions based on AI models.
+
+## 🛡 Security Protocols
+* Database encryption using AES-256.
+* Regular penetration testing on the Linux server environment.
+*
