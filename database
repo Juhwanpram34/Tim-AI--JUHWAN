@@ -1,1 +1,29 @@
+-- AI Financial System - Database Schema
+-- Optimized for MySQL 8.0
 
+CREATE DATABASE IF NOT EXISTS ai_finance_db;
+USE ai_finance_db;
+
+-- Tabel untuk menyimpan transaksi keuangan otomatis
+CREATE TABLE transactions (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    transaction_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    description VARCHAR(255) NOT NULL,
+    amount DECIMAL(15, 2) NOT NULL,
+    category ENUM('Income', 'Expense', 'Investment') NOT NULL,
+    account_source VARCHAR(100),
+    is_analyzed_by_ai BOOLEAN DEFAULT FALSE
+);
+
+-- Tabel untuk hasil analisis AI (Financial Forecasting)
+CREATE TABLE ai_analysis_logs (
+    log_id INT AUTO_INCREMENT PRIMARY KEY,
+    transaction_id INT,
+    prediction_score FLOAT,
+    anomaly_detected BOOLEAN DEFAULT FALSE,
+    recommendation TEXT,
+    FOREIGN KEY (transaction_id) REFERENCES transactions(id)
+);
+
+-- Indexing untuk kecepatan pengolahan data (Target C++ Optimization)
+CREATE INDEX idx_transaction_date ON transactions(transaction_date);
